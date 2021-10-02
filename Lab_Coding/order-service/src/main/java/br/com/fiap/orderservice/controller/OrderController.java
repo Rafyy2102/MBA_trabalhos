@@ -1,6 +1,6 @@
 package br.com.fiap.orderservice.controller;
 
-import br.com.fiap.orderservice.dto.Order;
+import br.com.fiap.orderservice.entity.Order;
 import br.com.fiap.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

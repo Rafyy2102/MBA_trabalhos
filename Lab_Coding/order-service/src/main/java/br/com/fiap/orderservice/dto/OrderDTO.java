@@ -3,7 +3,7 @@ package br.com.fiap.orderservice.dto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Order {
+public class OrderDTO {
 
     private int idPedido;
     private String email;
@@ -21,10 +21,12 @@ public class Order {
     private String validade;
     private String bandeira;
 
-    public Order(int idPedido, String email, String nome, String shippingAddress,
-                 String descricao, int quantidadeIten, BigDecimal preco, BigDecimal valor,
-                 String formaPagamento, LocalDateTime dataPedido, String status, int idTransacao,
-                 String numeroCartao, String validade, String bandeira) {
+    public OrderDTO(){}
+
+    public OrderDTO(int idPedido, String email, String nome, String shippingAddress, String descricao,
+                    int quantidadeIten, BigDecimal preco, BigDecimal valor, String formaPagamento,
+                    LocalDateTime dataPedido, String status, int idTransacao, String numeroCartao,
+                    String validade, String bandeira) {
         this.idPedido = idPedido;
         this.email = email;
         this.nome = nome;
