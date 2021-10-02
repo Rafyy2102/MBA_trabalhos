@@ -127,7 +127,7 @@
        "idTransacao" : 2, 
         "numeroCartao" : "7894561231257896", 
         "validadeCartao" : "10/2026", 
-        "bandeira" : "Elo"
+        "bandeira" : "MasterCard"
     }
 
 ## Endpoint delete
