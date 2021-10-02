@@ -1,0 +1,111 @@
+Exercício 1 - Primeiras APIs
+Nesse primeiro exercício, entre no site https://start.spring.io/ , monte um projeto com
+grupo br.com.fiap e Artifact com nome order-service aplicando os conceitos aplicados
+em sala de aula.
+1. Crie um endpoint chamado findById que receba um id do pedido e retorne
+objeto DTO Order com os seguintes atributos caso encontrado. email, Nome
+completo e shipping address, id do pedido, descrição de cada item do pedido,
+quantidade de itens do pedido, preço unitário de cada item, preço total do
+pagamento, forma de pagamento, data do pedido e status do pedido. Adicione
+também os atributos de pagamento como id da transação, número do cartão,
+validade do cartão, bandeira;
+2. No Repository, NÃO utilizar nenhum banco, deixe em memória.
+3. Crie um endpoint chamado save que receba um objeto DTO Order com os
+seguintes atributos email, Nome completo e shipping address, id do pedido,
+descrição de cada item do pedido, quantidade de itens do pedido, preço unitário
+de cada item, preço total, forma de pagamento, data do pedido e status do
+pedido. Adicione também os atributos de pagamento como id da transação,
+número do cartão, validade do cartão, bandeira;
+4. Retornar no método a URL de chamada do pedido salvo;
+5. Crie um endpoint chamado update que receba o id do pedido na url do Endpoint
+e um objeto DTO Order com os atributos que serão atualizados (shipping address,
+descrição de cada item do pedido, quantidade de itens do pedido, preço unitário
+de cada item, preço total, forma de pagamento e data do pedido). Adicione
+também os atributos de pagamento como id da transação, número do cartão,
+validade do cartão, bandeira;
+6. Crie um endpoint chamado delete que receba o id na url do Endpoint e delete o
+pedido com o Id .
+7. Gere a documentaçao README.md e documente exemplo de cada chamada.
+8. Commit no seu repositório Git.
+9. Order DTO deve possuir: Id, email, Nome completo e shipping address, id do
+pedido, descrição de cada item do pedido, quantidade de itens do pedido, preço
+unitário de cada item, preço total do pagamento, forma de pagamento, data do
+pedido e status do pedido. Adicione também os atributos de pagamento como id
+da transação, número do cartão, validade do cartão, bandeira;
+
+OBS 1: Data do pedido no formato (MM/DD/YYYY) e pode ser uma String
+OBS 2: Como gerar o README.MD -&gt; https://github.com/adam-p/markdown-
+here/wiki/Markdown-Cheatsheet
+OBS 3: Valores em geral devem ser BigDecimal com duas casas após a vírgula;
+Para rodar no prompt de comando mvn sprint-boot:run
+
+Monte agora um projeto com grupo br.com.fiap e Artifact com nome payment-service
+aplicando os conceitos aplicados em sala de aula.
+10. Crie um endpoint chamado findById que receba um id da transação e retorne um
+objeto DTO Payment com os seguintes atributos id da transação, número do
+cartão, validade do cartão, valor da compra, bandeira
+11. No Repository, NÃO utilizar nenhum banco, deixe em memória.
+12. Crie um endpoint chamado save que receba objeto DTO Payment com os
+seguintes atributos : id da transação, número do cartão, validade do cartão, valor
+da compra, bandeira;
+13. Retornar no método a URL de chamada do pagamento salvo;
+14. Crie um endpoint chamado update que receba o id do pagamento na url do
+Endpoint e um objeto DTO Payment com os atributos que serão atualizados (
+número do cartão, validade do cartão, valor da compra, bandeira)
+15. Crie um endpoint chamado delete que receba o id na url do Endpoint e delete o
+pedido com o Id .
+16. Gere a documentaçao README.md e documente exemplo de cada chamada.
+17. Commit no seu repositório Git.
+
+Payment DTO deve possuir: id da transação, número do cartão, validade do
+cartão, valor da compra, bandeira;
+
+OBS 1: Na validade do cartão, o formato MM/YYYY pode ser uma String
+OBS 2: Valor da compra deve ser BigDecimal com duas casas após a vírgula;
+Desafio EXTRA: Faça o método save do order-service chamar o payment-service
+passando alguns parâmetros em todas as iterações. Iniciando pelo método save;
+Para rodar no prompt de comando mvn sprint-boot:run
+==================================================================================
+
+Exercício 2 - Handling de Exceção APIs
+Nesse segundo exercício, desenvolva um Handling de Exceção e Testes Unitários, suba
+no github e crie um documento txt com o endereço do seu projeto no seu github
+comitado.
+1. Handling de Exceção: Crie um exception handling para tratar as exceções
+possíveis de um pedido:
+○ Não encontrar um pedido em busca por id;
+○ Não conseguir atualizar um pedido por registro inválido;
+○ Implementar uma exceção para tratar internal server error;
+
+Dicas/Instruções:
+
+○ Crie uma classe de ExceptionResponse com as mensagens conforme
+exemplo abaixo para formatar a resposta de erro.
+
+○ Crie uma Classe Exception Handling
+(RestResponseEntityExceptionHandler) e crie métodos com exceções,
+customizando-as, e retornando os status Http devidos:
+i. Verifique Entidade não encontrada (nome do método
+handleEntityNotFound) e o Handle da classe é o
+EntityNotFoundException que será criado, conforme exemplo
+abaixo.
+Exemplo:
+import static
+br.com.comexport.infrastructure.exception.Exceptions.generateMe
+ssage;
+import static
+br.com.comexport.infrastructure.exception.Exceptions.toMap;
+public class EntityNotFoundException extends Exception {
+public EntityNotFoundException(Class clazz, String...
+searchParamsMap) {
+
+super(generateMessage(clazz.getSimpleName(),
+toMap(String.class, String.class, searchParamsMap)));
+}
+}
+ii. Verifique o erro no servidor (INTERNAL SERVER ERROR) (nome do
+método handlerServerException), sendo que Handle da classe é o
+ServerException que será criado conforme
+EntityNotFoundException no exemplo acima.
+
+Para rodar no prompt de comando mvn sprint-boot:run
