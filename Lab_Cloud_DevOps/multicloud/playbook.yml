@@ -59,13 +59,13 @@
 
     - name: Instalação do GCLOUD, AZ, Terraform, Docker e outras dependências
       apt:
-        pkg: ['google-cloud-sdk','unzip','azure-cli', 'terraform', 'docker-ce', 'build-essential', 'virtualenv', 'zlib1g-dev', 'libssl-dev', 'libncurses-dev', 'libffi-dev', 'libsqlite3-dev', 'libreadline-dev', 'libbz2-dev', 'ruby', 'python-is-python3']
+        pkg: ['google-cloud-sdk','unzip','azure-cli', 'docker-ce', 'build-essential', 'virtualenv', 'zlib1g-dev', 'libssl-dev', 'libncurses-dev', 'libffi-dev', 'libsqlite3-dev', 'libreadline-dev', 'libbz2-dev', 'ruby', 'python-is-python3']
         state: present
 
-    - name: Update do Git 
+    - name: Update do Git e Terraform
       apt:
-        name: git
-        state: latest
+        pkg: ['git','terraform']
+        state: latest    
 
     ############# Instalação do AWS CLI
 
